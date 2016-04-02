@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="kr" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>스터디 과제</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body ng-controller="mainCtrl">
+    <div id="wrap">
+        <section id="container">
+            <div class="bookmark">
+                <form ng-submit="add(homepage)">
+                    <fieldset>
+                        <legend>즐겨찾기</legend>
+                        <label for="bookMark">BookMark</label>
+                        <input id="bookMark" ng-model="homepage.bookmark" type="text" placeholder="주소를 입력하세요">
+                    </fieldset>
+                </form>
+                <div class="num_length">등록된 개수 : <span>{{sites.length}}</span></div>
+                <ol class="bookmark_list">
+                    <li ng-repeat="clip in sites track by $index">
+                        <a href="http://{{clip.bookmark}}" title="{{clip.bookmark}}(새창열림)" target="_blank">{{clip.bookmark}}</a>
+                        <button class="btn" ng-click="delete($index)">삭제</button>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </div>
+
+<!-- javascript -->
+<script src="angular.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="kr" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>20160402 스터디</title>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+    <link rel="stylesheet" href="angular-chart.css"/>
+    <script src="chart.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="angular-chart.js"></script>
+    <script src="csCenter.js"></script>
+    <script src="app.js"></script>
+</head>
+<!-- 내 과제
+<body ng-controller="mainCtrl">
+    <div id="wrap">
+        <section id="container">
+            <div class="bookmark">
+                <form ng-submit="add(homepage)">
+                    <fieldset>
+                        <legend>즐겨찾기</legend>
+                        <label for="bookMark">BookMark</label>
+                        <input id="bookMark" ng-model="homepage.bookmark" type="text" placeholder="주소를 입력하세요">
+                    </fieldset>
+                </form>
+                <div class="num_length">등록된 개수 : <span>{{sites.length}}</span></div>
+                <ol class="bookmark_list">
+                    <li ng-repeat="clip in sites track by $index"> &lt;!&ndash; track by를 붙이면 앞의 sites의 내용을 보지 않고 index 넘버로만 따짐 hashkey가 붙지 않기 때문에 충돌을 피할 수 있음&ndash;&gt;
+                        <a href="{{clip.bookmark}}" title="{{clip.bookmark}}(새창열림)" target="_blank">{{clip.bookmark}}</a>
+                        <button class="btn" ng-click="delete($index)">삭제</button>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </div>
+
+    <div>
+         <div class="container">
+             <input type="text"/>
+             <div class="panel panel-primary">
+                 <div class="panel-heading">
+                     <p>등록된 개수</p>
+                 </div>
+                 <div class="panel-body">
+                     <ul class="list-group">
+                         <li class="list-group-item" ng-repeat="bookmark in bookmarks track by $index">
+                             <a href="{{bookmarks}}">{{bookmark.href}}</a>
+                             <span class="pull-right">
+                                 <button>
+
+                                 </button>
+                             </span>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+         </div>
+    </div>
+
+<script src="../20160326/task_bookmark/angular.js"></script>
+<script src="app.js"></script>
+</body>-->
+<!-- 수호님 과제 중간
+
+<body ng-controller="MainCtrl">
+<div class="container">
+    <form ng-submit="add(a)">
+        <input type="text" ng-model="a.txt">
+    </form>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <p>등록된 개수 {{bookmarks.length}}</p>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item"
+                    ng-repeat="bookmark in bookmarks track by $index">
+                    <a href="{{bookmark.href}}">{{bookmark.href}}</a>
+                        <span class="pull-right">
+                            <button class="btn btn-danger btn-xs"
+                                    ng-click="delete($index)">삭제</button>
+                        </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="../20160326/task_bookmark/angular.js"></script>
+<script src="app.js"></script>
+</body>
+-->
+
+<body ng-controller="RootCtrl">
+<div ng-controller="MainCtrl" class="container">
+    <form ng-submit="add(a)">
+        <input type="text" ng-model="a.txt">
+    </form>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <p>등록된 개수 {{bookmarks.length}}</p>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item"
+                    ng-repeat="bookmark in bookmarks track by $index">
+                    <a href="{{bookmark.href}}">{{bookmark.href}}</a>
+                        <span class="pull-right">
+                            <button class="btn btn-danger btn-xs"
+                                    ng-click="delete($index)">삭제</button>
+                        </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container" ng-controller="SecondCtrl">
+    <p class="well">{{server}}</p>
+</div>
+<div class="container" ng-controller="ChartCtrl">
+    <canvas class="chart chart-bar"
+            chart-data="data"
+            chart-legend="true"
+            chart-labels="labels"
+            chart-series="series"
+            ></canvas>
+</div>
+
+</body>
+</html>
