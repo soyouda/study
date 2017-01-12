@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-2.5.2/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-2.5.2/jasmine.css">
+
+    <script type="text/javascript" src="jasmine/lib/jasmine-2.5.2/jasmine.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine-2.5.2/jasmine-html.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine-2.5.2/boot.js"></script>
+</head>
+<body>
+
+<script>
+    function countif(arr, target) {
+        var result = 0;
+
+        for(var i=0; i<arr.length; i++){
+            if(arr[i] === target) {
+                result +=1 ;
+            }
+        }
+        return result;
+    }
+
+    var arr = ['남', '여'];
+    console.log('남자수는', countif(arr, '남'));
+</script>
+
+</body>
+</html>
