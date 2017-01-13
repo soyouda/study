@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * Created by jintae on 2016-12-13.
+     */
+    /*
+     var myObject = {
+     name:'foo',
+     sayName:function(){
+     console.log(this.name);
+     }
+     };
+     var otherObject = {
+     name:'bar'
+     };
+     otherObject.sayName = myObject.sayName;
+     myObject.sayName();
+     otherObject.sayName();
+
+     // = this는 자신을 호출한 객체에 바인딩 된다.
+     */
+
+/*
+     var value = 100;
+
+     var myObject = {
+     value: 1,
+     func1: function(){
+     var that = this;
+     this.value += 1;
+     console.log('func1() called. this.value :' + this.value);
+
+     func2 = function(){
+     that.value += 1;
+     console.log('func2() called. this.value :' + that.value);
+
+     func3 = function(){
+     that.value += 1;
+     console.log('func3() called. this.value :' + that.value);
+     };
+     func3();
+     };
+     func2();
+     }
+     };
+     myObject.func1();
+*/
+
+    /*
+     function A(arg){
+     if(!(this instanceof arguments.callee)){
+     return new A(arg)
+     }
+     this.value = arg ? arg : 0;
+     }
+     var a = new A(100);
+     var b = A(10);
+
+     console.log(a.value);
+     console.log(b.value);
+     console.log(global.value);
+     */
+/*
+    function Person(name, age, gender){
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+    var foo = {};
+    Person.apply(foo, ['foo', 30, 'man']);
+    console.dir(foo);
+*/
+/*
+    function Person(name){
+        this.name = name;
+    }
+
+    var foo = new Person('foo');
+
+    console.dir(Person);
+    console.dir(foo);
+*/
+/*    function Person(name, age, hobby){
+        this.name = name;
+        this.age = age;
+        this.hobby = hobby;
+    }
+
+    var foo = new Person('foo', 30, 'tennis');
+
+    console.log(foo.hasOwnProperty('name'));
+
+    console.dir(Person.prototype);*/
+/*
+    try {
+        throw new Error(200, "x equals zero");
+    }
+    catch (e) {
+        document.write(e.message);
+    }
+*/
+    // input.func(); 객체함수를 3번실행할때마다 에러구문을 출력하세요.
+     var input = {
+     a : 0,
+     func : function(){
+         this.a += 1;
+         if(this.a%3 === 0)throw new Error();
+     }
+     };
+    // 입력된 값의 타입을 알려주는 함수를 만드시오
+    function a(a){
+        if(a === undefined){
+            return '알 수 없는 값입니다.'
+        }
+        return '입력된 값은 ' +typeof a + ' 입니다.';
+    }
+
+    //2개의 숫자를 입력 받아 더 큰 숫자를 반환하는 max함수를 만드시오
+    function max(a, b){
+        return (a > b) ? a : b;
+    }
+
+    //4개의 숫자를 입력 받아 가장 작은 숫자를 반환하는 min함수를 만드시오
+    function min(a, b, c, d){
+        var ab = (a > b) ? b : a;
+        var ac = (ab > c) ? c : ab;
+        var abcd = (ac > d) ? d : ac;
+        return abcd;
+    }
+    //2개의 문자를 입력 받아 동일한지 확인하는 exact 함수를 만드시오
+    function exact(str1, str2){
+        return (str1 === str2) ? true : false;
+    }
+    //숫자를 하나 입력 받아 그 숫자의 절대값을 반환하는 abs 함수를 만드시오
+    function abs(a){
+        return Math.abs(a); // 이걸 원하는건 아니실 것 같긴한데요...
+    }
+    //반지름을 입력받아 원의 넓이를 반환하는 circle 함수를 만드시오
+    function circle(num){
+        return (num*num)*3.14;
+    }
+    //2개의 숫자중에 더 큰 숫자를 반지름으로 하여 원의 넓이를 구하시오
+    function circle(a, b){
+        var ab = (a > b) ? a : b;
+        return (ab*ab)*3.14;
+    }
+    //html 엘리먼트 이름과 텍스트를 문자열로 입력받아, 이를 조합하여 반환하는
+    //createElement함수를 만드시오
+    function creatElement(a, b){
+        if (b === undefined) {
+            return '<' + a + '>' + '</' + a + '>'
+        }
+        return '<' + a + '>' + b + '</' + a + '>'
+    }
+    //9번의 createElement함수를 응용하여 다음의 조건을 만족하시오
+    function creatElement(a,b,c) {
+        return '<' + a + '>'  + '<' + b + '>' + c + '</' + b + '>' + '</' + a + '>'
+    }
+    //makeURL함수를 만드시오
+    function makeURL(a){
+        return 'http://www.' + a;
+    }
+
+</script>
+</body>
+</html>
