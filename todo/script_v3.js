@@ -71,50 +71,76 @@ var todo = (function () {
 
     var warning = console.log;
 
-    var render = (function () {
-        var renderConsole = function () {
-            warning('진행');
+    var init, render;
 
-            var task;
-            for(var i = 0; i < tasks.length; i++) {
-                task = tasks[i];
-                if(tasks[i].state === '진행') {
-                    warning(tasks[i].id + ',' + task.title +'(' + task.state+ ')')
+    (function () {
+        var completeLi, progressLi;
+
+        init = (function () {
+            var initHtml = function () {
+                progressLi = document.querySelector('#todo .progress li');
+                completeLi = document.querySelector('#todo .complete li');
+
+                progressLi.parentNode.removeChild(progressLi);
+                completeLi.parentNode.removeChild(completeLi);
+            };
+
+            return function () {
+                if(mode === 'html') {
+                    initHtml();
                 }
-            }
+            };
+        })();
 
-            warning('완료');
+        render = (function () {
+            var renderConsole = function () {
+                warning('진행');
 
-            for(var i = 0; i < tasks.length; i++) {
-                task = tasks[i];
-                if(tasks[i].state === '완료') {
-                    warning(tasks[i].id + ',' + task.title +'(' + task.state+ ')')
+                var task;
+                for(var i = 0; i < tasks.length; i++) {
+                    task = tasks[i];
+                    if(tasks[i].state === '진행') {
+                        warning(tasks[i].id + ',' + task.title +'(' + task.state+ ')')
+                    }
                 }
-            }
 
-            console.log ('추가    : addTask(할 일 내용)');
-            console.log ('삭제    : removeTask(아이디)');
-            console.log ('상태변경 : changeState(아이디, 상태 - 완료 또는 진행)');
+                warning('완료');
 
-        };
+                for(var i = 0; i < tasks.length; i++) {
+                    task = tasks[i];
+                    if(tasks[i].state === '완료') {
+                        warning(tasks[i].id + ',' + task.title +'(' + task.state+ ')')
+                    }
+                }
 
-        var renderHTML = function () {
+                console.log ('추가    : addTask(할 일 내용)');
+                console.log ('삭제    : removeTask(아이디)');
+                console.log ('상태변경 : changeState(아이디, 상태 - 완료 또는 진행)');
 
-        };
+            };
 
-        return function(){
-            if(mode ==='console') {
-                renderConsole()
-            } else if (mode === 'html') {
-                renderHTML()
-            }
+            var renderHTML = function () {
+                //각 리스트를 비운다.
+                //진행을 채운다.
+                //완료를 채운다.
+                //인푹박스를 비운다.
+            };
 
-        };
-    });
+            return function(){
+                if(mode ==='console') {
+                    renderConsole()
+                } else if (mode === 'html') {
+                    renderHTML()
+                }
+
+            };
+        })();
+    })();
 
     render();
 
     return {
+        init: init,
         modeHtml : function(){
             mode = 'html';
         },
@@ -138,6 +164,4 @@ var todo = (function () {
     }
 })();
 
-var taskId = todo.add('이름');
-
-todo.toggle(taskId);
+todo.init();
