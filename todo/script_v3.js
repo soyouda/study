@@ -121,6 +121,7 @@ var todo = (function () {
 
             var renderHTML = function () {
                 //각 리스트를 비운다.
+                document.querySelectorAll('#todo .progress').innerHtml = '';
                 //진행을 채운다.
                 //완료를 채운다.
                 //인푹박스를 비운다.
